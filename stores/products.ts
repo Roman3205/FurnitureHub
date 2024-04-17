@@ -2,7 +2,10 @@ import { defineStore } from "pinia";
 import type { productsItem } from "~/types.client.ts";
 
 import { useNuxtApp } from "#app";
-const { $toast } = useNuxtApp();
+let $toast = null;
+if (process.client) {
+  $toast = useNuxtApp().$toast;
+}
 
 export const useProductsStore = defineStore("productsStore", () => {
   const products = ref<productsItem[]>([]);

@@ -3,7 +3,7 @@
     <div
       class="flex justify-between w-full max-w-screen-lg items-center px-6 py-4"
     >
-      <ClientOnly>
+      <ClientOnly fallback-tag="span" fallback="Loading...">
         <div class="text-sm">Showing {{ products.length }} result</div>
       </ClientOnly>
       <div>
@@ -53,16 +53,22 @@
 </template>
 
 <script lang="ts" setup>
+import debounce from "lodash.debounce";
+
 const show = ref<number>(0);
+
 const { products } = storeToRefs(useProductsStore());
 const productsStore = useProductsStore();
-watch(show, async () => {
-  if (show.value || show.value > 0) {
-    await productsStore.showProductsPer(show.value);
-  } else {
-    await productsStore.loadProducts(1);
-  }
-});
+watch(
+  show,
+  debounce(async () => {
+    if (show.value || show.value > 0) {
+      await productsStore.showProductsPer(show.value);
+    } else {
+      await productsStore.loadProducts(1);
+    }
+  }, 500)
+);
 </script>
 
 <style>

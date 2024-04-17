@@ -1,9 +1,11 @@
 <template>
   <div>
     <NuxtLayout name="main">
+      <!-- <ClientOnly fallback="Loading" fallback-tag="span"> -->
       <TheFiltersBlock />
       <TheProducts />
       <ThePaginationBlock :pages="pages" />
+      <!-- </ClientOnly> -->
     </NuxtLayout>
   </div>
 </template>

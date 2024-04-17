@@ -9,9 +9,6 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "overrides": {
-    "vue": "latest"
-  },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
     "nuxt": "^3.11.1",
@@ -19,6 +16,9 @@
     "sass": "^1.74.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
+  },
+  "overrides": {
+    "vue": "latest"
   },
   "devDependencies": {
     "@nuxt/image": "^1.4.0",
@@ -30,6 +30,7 @@
     "bcrypt": "^5.1.1",
     "eslint": "^8.57.0",
     "flowbite": "^2.3.0",
+    "lodash.debounce": "^4.0.8",
     "mongoose": "^8.2.4",
     "next-auth": "^4.21.1",
     "nuxt-security": "^1.2.2",

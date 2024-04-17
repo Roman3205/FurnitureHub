@@ -18,11 +18,8 @@ export default defineEventHandler(async (event) => {
     const cart = user?.cartId;
 
     let item = cart.products.find((prod) => {
-      console.log(body.id, String(prod._id));
-
       return String(prod._id) === body.id;
     });
-    console.log(item);
 
     let index = cart.products.indexOf(item);
 
