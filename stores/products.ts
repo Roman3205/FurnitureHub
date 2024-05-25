@@ -10,6 +10,7 @@ if (process.client) {
 export const useProductsStore = defineStore("productsStore", () => {
   const products = ref<productsItem[]>([]);
   const totalPage = ref<number>(1);
+  const productsCount = computed(() => products.value.length);
   const loadProducts = async (page: number) => {
     try {
       const data = await $fetch<any>("/api/products", {
@@ -56,6 +57,7 @@ export const useProductsStore = defineStore("productsStore", () => {
     loadProducts,
     showProductsPer,
     totalPage,
+    productsCount,
   };
 });
 

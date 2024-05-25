@@ -16,9 +16,14 @@
 </template>
 
 <script lang="ts" setup>
-const productsStore = useProductsStore();
-await productsStore.loadProducts(1);
-const { products } = storeToRefs(useProductsStore());
+const { products } = defineProps<{
+  products: {
+    _id: string;
+    title: string;
+    image: string;
+    price: number;
+  }[];
+}>();
 </script>
 
 <style></style>

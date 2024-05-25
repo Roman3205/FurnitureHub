@@ -4,7 +4,7 @@
       class="flex justify-between w-full max-w-screen-lg items-center px-6 py-4"
     >
       <ClientOnly fallback-tag="span" fallback="Loading...">
-        <div class="text-sm">Showing {{ products.length }} result</div>
+        <div class="text-sm">Showing {{ productsCount }} result</div>
       </ClientOnly>
       <div>
         <div class="relative">
@@ -57,7 +57,7 @@ import debounce from "lodash.debounce";
 
 const show = ref<number>(0);
 
-const { products } = storeToRefs(useProductsStore());
+const { productsCount } = storeToRefs(useProductsStore());
 const productsStore = useProductsStore();
 watch(
   show,
